@@ -1,0 +1,121 @@
+{
+  "name": "website-carbon-calculator",
+  "version": "1.0.1",
+  "description": "This package calculates the carbon emission by the network traffic from a given URL.",
+  "author": {
+    "name": "Ricardo Dantas",
+    "email": "ricardodantas@gmail.com",
+    "url": "https://ricardodantas.me"
+  },
+  "funding": "https://github.com/sponsors/ricardodantas",
+  "main": "build/main/index.js",
+  "typings": "build/main/index.d.ts",
+  "module": "build/module/index.js",
+  "repository": "https://github.com/ricardodantas/website-carbon-calculator",
+  "homepage": "https://github.com/ricardodantas/website-carbon-calculator",
+  "license": "MIT",
+  "keywords": [
+    "green tech",
+    "sustainability",
+    "carbon emission",
+    "co2",
+    "carbon calculator"
+  ],
+  "scripts": {
+    "build": "run-p build:*",
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write && pretty-quick --staged",
+    "fix:lint": "eslint src --ext .ts --fix",
+    "test": "run-s build test:*",
+    "test:lint": "eslint src --ext .ts",
+    "test:prettier": "prettier \"src/**/*.ts\" --list-different",
+    "test:spelling": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
+    "test:unit": "nyc --silent jest",
+    "check-cli": "run-s test diff-integration-tests check-integration-tests",
+    "check-integration-tests": "run-s check-integration-test:*",
+    "diff-integration-tests": "mkdir -p diff && rm -rf diff/test && cp -r test diff/test && rm -rf diff/test/test-*/.git && cd diff && git init --quiet && git add -A && git commit --quiet --no-verify --allow-empty -m 'WIP' && echo '\\n\\nCommitted most recent integration test output in the \"diff\" directory. Review the changes with \"cd diff && git diff HEAD\" or your preferred git diff viewer.'",
+    "watch:build": "tsc -p tsconfig.json -w",
+    "watch:test": "nyc --silent jest --watch",
+    "cov": "run-s build test:unit cov:html cov:lcov && open-cli coverage/index.html",
+    "cov:html": "nyc report --reporter=html",
+    "cov:lcov": "nyc report --reporter=lcov",
+    "cov:send": "run-s cov:lcov && codecov",
+    "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "doc": "run-s doc:html && open-cli build/docs/index.html",
+    "doc:html": "typedoc src/ --out build/docs",
+    "doc:json": "typedoc src/ --json build/docs/typedoc.json",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
+    "version": "standard-version",
+    "reset-hard": "git clean -dfx && git reset --hard && npm i",
+    "prepare-release": "run-s reset-hard test cov:check doc:html version doc:publish",
+    "prepare": "husky install"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "@bitauth/libauth": "^1.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "codecov": "^3.5.0",
+    "cspell": "^4.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-functional": "^3.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.3.5",
+    "gh-pages": "^3.1.0",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "open-cli": "^6.0.1",
+    "prettier": "^2.1.1",
+    "pretty-quick": "^3.1.0",
+    "standard-version": "^9.0.0",
+    "ts-jest": "^26.5.5",
+    "ts-node": "^9.0.0",
+    "typedoc": "^0.20.35",
+    "typescript": "^4.2.4"
+  },
+  "files": [
+    "build/main",
+    "build/module",
+    "!**/*.test.*",
+    "!**/*.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "exclude": [
+      "**/*.test.js"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/ricardodantas/website-carbon-calculator/issues",
+    "email": "ricardodantas@gmail.com"
+  }
+}
