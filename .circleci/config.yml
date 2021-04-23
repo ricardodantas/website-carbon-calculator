@@ -27,25 +27,25 @@ defaults: &defaults
           - .
 
 jobs:
-  'node-10':
+  node-10:
     <<: *defaults
 
-  'node-12':
+  node-12:
     <<: *defaults
     docker:
       - image: circleci/node:12
 
-  'node-13':
+  node-13:
     <<: *defaults
     docker:
       - image: circleci/node:13
 
-  'node-14':
+  node-14:
     <<: *defaults
     docker:
       - image: circleci/node:14
 
-  'deploy':
+  deploy:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -60,13 +60,13 @@ workflows:
   version: 2
   build:
     jobs:
-      - 'node-10'
-      - 'node-12'
-      - 'node-13'
-      - 'node-14'
+      - node-10
+      - node-12
+      - node-13
+      - node-14
       - deploy:
           requires:
-            - 'node-10'
+            - node-10
           filters:
             tags:
               only: /^v.*/
