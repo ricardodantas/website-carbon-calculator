@@ -62,7 +62,7 @@ workflows:
       - 'node-14'
       - deploy:
           requires:
-            - test
+            - 'node-10'
           filters:
             tags:
               only: /^v.*/
