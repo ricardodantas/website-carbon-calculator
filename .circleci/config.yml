@@ -21,6 +21,10 @@ defaults: &defaults
     - run: npm test
     - run: npm run cov:send
     - run: npm run cov:check
+    - persist_to_workspace:
+        root: ~/repo
+        paths:
+          - .
 
 jobs:
   'node-10':
