@@ -2,7 +2,7 @@
 
 # Website Carbon Calculator
 
-This package calculates the carbon emission by the network traffic from a given URL. Use it on both browser either Node.js.
+This package calculates the carbon emission by the network traffic from a given URL.
 
 ## How to use
 
@@ -27,10 +27,6 @@ yarn add website-carbon-calculator
 
 ```
 import { WebsiteCarbonCalculator, WebsiteCarbonCalculatorError } from 'website-carbon-calculator';
-
-// or
-const WebsiteCarbonCalculator = require('website-carbon-calculator');
-
 
 try {
 
