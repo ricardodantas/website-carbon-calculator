@@ -30,6 +30,18 @@ export type GreenFoundationAPIResponse = {
   readonly modified: string;
 };
 
+export type GooglePageSpeedAPIErrorResponse = {
+  error?: {
+    code: number;
+    message: string;
+    errors: {
+      message: string;
+      domain: string;
+      reason: string;
+    }[];
+  };
+};
+
 export type GooglePageSpeedAPIResponse = {
   readonly captchaResult: string;
   readonly kind: string;

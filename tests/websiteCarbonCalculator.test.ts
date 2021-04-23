@@ -12,7 +12,7 @@ describe('Website Carbon Calculator', () => {
     websiteCarbonCalculator = null;
   });
 
-  it('Should calculate the carbon emission for a given URL.', async () => {
+  it('Should calculate the carbon emission for a given URL', async () => {
     websiteCarbonCalculator = new WebsiteCarbonCalculator({
       pagespeedApiKey: process.env.GOOGLE_PAGESPEED_API_KEY,
     });
@@ -36,7 +36,18 @@ describe('Website Carbon Calculator', () => {
     }).toThrowError(WebsiteCarbonCalculatorError);
   });
 
-  it('Should throw an error for a given invalid URL.', async () => {
+  it('Should throw error for a non existent website', async () => {
+    await expect(async () => {
+      websiteCarbonCalculator = new WebsiteCarbonCalculator({
+        pagespeedApiKey: process.env.GOOGLE_PAGESPEED_API_KEY,
+      });
+      await websiteCarbonCalculator.calculateByURL(
+        'https://something.invalid.xpto'
+      );
+    }).rejects.toThrowError(WebsiteCarbonCalculatorError);
+  });
+
+  it('Should throw an error for a given invalid URL', async () => {
     await expect(async () => {
       websiteCarbonCalculator = new WebsiteCarbonCalculator({
         pagespeedApiKey: process.env.GOOGLE_PAGESPEED_API_KEY,

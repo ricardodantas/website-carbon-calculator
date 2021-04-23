@@ -15,6 +15,7 @@ import {
 } from './constants';
 import {
   CarbonCalculatorResult,
+  GooglePageSpeedAPIErrorResponse,
   GooglePageSpeedAPIResponse,
   GreenFoundationAPIResponse,
   IndigoItem,
@@ -45,7 +46,7 @@ export class WebsiteCarbonCalculator {
   }: {
     readonly url: string;
     readonly key: string;
-  }): Promise<GooglePageSpeedAPIResponse> {
+  }): Promise<GooglePageSpeedAPIResponse & GooglePageSpeedAPIErrorResponse> {
     return fetch(
       `${GOOGLE_PAGESPEED_API_ENDPOINT}?url=${url}&key=${key}`
     ).then((res) => res.json());
@@ -69,10 +70,15 @@ export class WebsiteCarbonCalculator {
       this.getGreenWeb(normalizedURL),
     ]);
 
+    if (pagespeedapi?.error) {
+      throw new WebsiteCarbonCalculatorError(pagespeedapi.error.message);
+    }
+
     const isGreenHost = greenweb?.green;
 
     if (
-      !pagespeedapi?.lighthouseResult.audits['network-requests']?.details?.items
+      !pagespeedapi?.lighthouseResult?.audits['network-requests']?.details
+        ?.items
     ) {
       throw new WebsiteCarbonCalculatorError(
         "Sorry, traffic couldn't be estimated."
