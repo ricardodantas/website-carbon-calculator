@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>website-carbon-calculator</title>
+	<meta name="description" content="Documentation for website-carbon-calculator">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">website-carbon-calculator</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>website-carbon-calculator</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://img.shields.io/snyk/vulnerabilities/github/ricardodantas/website-carbon-calculator" alt="Snyk Vulnerabilities for GitHub Repo"> <img src="https://img.shields.io/circleci/build/gh/ricardodantas/website-carbon-calculator" alt="CircleCI"> <img src="https://img.shields.io/codecov/c/github/ricardodantas/website-carbon-calculator" alt="Codecov"> <img src="https://img.shields.io/github/last-commit/ricardodantas/website-carbon-calculator" alt="GitHub last commit"> <img src="https://img.shields.io/github/languages/top/ricardodantas/website-carbon-calculator" alt="GitHub top language"> <img src="https://img.shields.io/node/v/website-carbon-calculator" alt="node-current"></p>
+				<a href="#🌳-website-carbon-calculator" id="🌳-website-carbon-calculator" style="color: inherit; text-decoration: none;">
+					<h1>🌳 Website Carbon Calculator</h1>
+				</a>
+				<p>This package calculates the carbon emission by the network traffic from a given URL.</p>
+				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
+					<h2>How to use</h2>
+				</a>
+				<a href="#1-install-the-package-using-npm-or-yarn" id="1-install-the-package-using-npm-or-yarn" style="color: inherit; text-decoration: none;">
+					<h3>1. Install the package using NPM or YARN.</h3>
+				</a>
+				<p><strong>NPM</strong></p>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000"> </span><span style="color: #001080">website</span><span style="color: #000000">-</span><span style="color: #001080">carbon</span><span style="color: #000000">-</span><span style="color: #001080">calculator</span><span style="color: #000000"> --</span><span style="color: #001080">save</span>
+
+</code></pre>
+				<p><strong>YARN</strong></p>
+				<pre><code><span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">add</span><span style="color: #000000"> </span><span style="color: #001080">website</span><span style="color: #000000">-</span><span style="color: #001080">carbon</span><span style="color: #000000">-</span><span style="color: #001080">calculator</span>
+</code></pre>
+				<a href="#2-get-you-google-pagespeed-api-key-here" id="2-get-you-google-pagespeed-api-key-here" style="color: inherit; text-decoration: none;">
+					<h3>2. Get you Google PageSpeed API Key <a href="https://developers.google.com/speed/docs/insights/v5/get-started#APIKey">here</a>.</h3>
+				</a>
+				<a href="#3-import-and-use-the-lib" id="3-import-and-use-the-lib" style="color: inherit; text-decoration: none;">
+					<h3>3. Import and use the lib</h3>
+				</a>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">WebsiteCarbonCalculator</span><span style="color: #000000">, </span><span style="color: #001080">WebsiteCarbonCalculatorError</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;website-carbon-calculator&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #AF00DB">try</span><span style="color: #000000"> {</span>
+
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">websiteCarbonCalculator</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">WebsiteCarbonCalculator</span><span style="color: #000000">({</span><span style="color: #001080">pagespeedApiKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;...&#039;</span><span style="color: #000000">});</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #001080">websiteCarbonCalculator</span><span style="color: #000000">.</span><span style="color: #795E26">calculateByURL</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://yourwebsite.com&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">//   {</span>
+<span style="color: #008000">//     url: &#039;yourwebsite.com&#039;,</span>
+<span style="color: #008000">//     bytesTransferred: 123456,</span>
+<span style="color: #008000">//     isGreenHost: true,</span>
+<span style="color: #008000">//     co2PerPageview: 0.1234567,</span>
+<span style="color: #008000">//   }</span>
+
+<span style="color: #000000">} </span><span style="color: #AF00DB">catch</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">WebsiteCarbonCalculatorError</span><span style="color: #000000">){</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">warn</span><span style="color: #000000">(</span><span style="color: #001080">error</span><span style="color: #000000">.</span><span style="color: #001080">message</span><span style="color: #000000">);</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">  </span><span style="color: #008000">// Do something else...</span>
+<span style="color: #000000">}</span>
+
+
+</code></pre>
+				<a href="#how-it-works" id="how-it-works" style="color: inherit; text-decoration: none;">
+					<h2>How it works</h2>
+				</a>
+				<p>Check how the calc works <a href="https://www.websitecarbon.com/how-does-it-work/">here</a>.</p>
+				<a href="#sponsor" id="sponsor" style="color: inherit; text-decoration: none;">
+					<h2>Sponsor</h2>
+				</a>
+				<p><a href="https://github.com/sponsors/ricardodantas">:heart: Sponsor</a></p>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<p>See <a href="CONTRIBUTING.md">CONTRIBUTING</a>.</p>
+				<a href="#author" id="author" style="color: inherit; text-decoration: none;">
+					<h2>Author</h2>
+				</a>
+				<p>Ricardo Dantas - <a href="https://twitter.com/ricardodantas">@ricardodantas</a></p>
+				<a href="#credits" id="credits" style="color: inherit; text-decoration: none;">
+					<h2>Credits</h2>
+				</a>
+				<p>This package based on the carbon emission calculator code available on the <a href="https://gitlab.com/wholegrain/carbon-api-2-0/-/tree/master/">Website Carbon API</a> by <a href="https://www.wholegraindigital.com/">Wholegrain Digital</a>.</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>MIT, see <a href="LICENSE">LICENSE</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_constants.html">lib/constants</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_types.html">lib/types</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_websitecarboncalculator.html">lib/website<wbr>Carbon<wbr>Calculator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_websitecarboncalculatorerror.html">lib/website<wbr>Carbon<wbr>Calculator<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_example.html">types/example</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
