@@ -1,4 +1,4 @@
-export default class WebsiteCarbonCalculatorError extends Error {
+export class WebsiteCarbonCalculatorError extends Error {
   constructor(message: string) {
     super(message);
   }

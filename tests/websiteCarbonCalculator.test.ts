@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config();
 
-import WebsiteCarbonCalculator from '../src/index';
-import WebsiteCarbonCalculatorError from '../src/lib/websiteCarbonCalculatorError';
+import { WebsiteCarbonCalculator, WebsiteCarbonCalculatorError } from '../src';
 
 jest.setTimeout(60000);
 

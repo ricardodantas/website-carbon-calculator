@@ -4,8 +4,6 @@
 
 This package calculates the carbon emission by the network traffic from a given URL. Use it on both browser either Node.js.
 
-Package based on the carbon emission calculator code available on the [Website Carbon API](https://gitlab.com/wholegrain/carbon-api-2-0/-/tree/master/) by [Wholegrain Digital](https://www.wholegraindigital.com/).
-
 ## How to use
 
 ### 1. Install the package using NPM or YARN.
@@ -28,23 +26,31 @@ yarn add website-carbon-calculator
 ### 3. Import and use the lib
 
 ```
-import WebsiteCarbonCalculator from 'website-carbon-calculator';
+import { WebsiteCarbonCalculator, WebsiteCarbonCalculatorError } from 'website-carbon-calculator';
 
 // or
 const WebsiteCarbonCalculator = require('website-carbon-calculator');
 
 
+try {
 
-const websiteCarbonCalculator = new WebsiteCarbonCalculator({pagespeedApiKey: '...'});
+  const websiteCarbonCalculator = new WebsiteCarbonCalculator({pagespeedApiKey: '...'});
+  const result = websiteCarbonCalculator.calculateByURL('https://yourwebsite.com');
 
-const result = websiteCarbonCalculator.calculateByURL('https://yourwebsite.com');
+//   {
+//     url: 'yourwebsite.com',
+//     bytesTransferred: 123456,
+//     isGreenHost: true,
+//     co2PerPageview: 0.1234567,
+//   }
 
-// result: {
-//      url: 'yourwebsite.com',
-//      bytesTransferred: 123456,
-//      isGreenHost: true,
-//      co2PerPageview: 0.1234567,
-//    }
+} catch(error) {
+  if(error instanceof WebsiteCarbonCalculatorError){
+    console.warn(error.message);
+  }
+  // Do something else...
+}
+
 
 ```
 
@@ -63,6 +69,10 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 ## Author
 
 Ricardo Dantas - [@ricardodantas](https://twitter.com/ricardodantas)
+
+## Credits
+
+This package based on the carbon emission calculator code available on the [Website Carbon API](https://gitlab.com/wholegrain/carbon-api-2-0/-/tree/master/) by [Wholegrain Digital](https://www.wholegraindigital.com/).
 
 ## License
 
