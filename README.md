@@ -1,4 +1,4 @@
-![CircleCI](https://img.shields.io/circleci/build/gh/ricardodantas/website-carbon-calculator) ![Codecov](https://img.shields.io/codecov/c/github/ricardodantas/website-carbon-calculator) ![GitHub last commit](https://img.shields.io/github/last-commit/ricardodantas/website-carbon-calculator) ![GitHub top language](https://img.shields.io/github/languages/top/ricardodantas/website-carbon-calculator)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/ricardodantas/website-carbon-calculator) ![CircleCI](https://img.shields.io/circleci/build/gh/ricardodantas/website-carbon-calculator) ![Codecov](https://img.shields.io/codecov/c/github/ricardodantas/website-carbon-calculator) ![GitHub last commit](https://img.shields.io/github/last-commit/ricardodantas/website-carbon-calculator) ![GitHub top language](https://img.shields.io/github/languages/top/ricardodantas/website-carbon-calculator) ![node-current](https://img.shields.io/node/v/website-carbon-calculator)
 
 # Website Carbon Calculator
 
