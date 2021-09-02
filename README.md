@@ -56,7 +56,7 @@ Check how the calc works [here](https://www.websitecarbon.com/how-does-it-work/)
 
 ## Sponsor
 
-[:heart: Sponsor](https://github.com/sponsors/ricardodantas)
+Help to maintain this project by being a [:heart: sponsor](https://github.com/sponsors/ricardodantas).
 
 ## Contributing
 
