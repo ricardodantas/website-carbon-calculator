@@ -36,7 +36,10 @@
     "transpiled",
     "typedoc",
     "untracked",
-    "mainthread"
+    "mainthread",
+    "ko-fi",
+    "yarnpkg",
+    "npmjs"
   ],
   "flagWords": [],
   "ignorePaths": [

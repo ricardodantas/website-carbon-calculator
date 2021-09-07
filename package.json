@@ -1,6 +1,6 @@
 {
   "name": "website-carbon-calculator",
-  "version": "1.2.4",
+  "version": "1.2.7",
   "description": "This package calculates the carbon emission by the network traffic from a given URL.",
   "author": {
     "name": "Ricardo Dantas",
