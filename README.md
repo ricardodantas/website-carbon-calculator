@@ -56,7 +56,7 @@ Check how the calc works [here](https://www.websitecarbon.com/how-does-it-work/)
 
 ## Sponsor
 
-Help to maintain this project by being a [:heart: sponsor](https://github.com/sponsors/ricardodantas).
+Help to maintain this project and become a sponsor on [Github Sponsors](https://github.com/sponsors/ricardodantas), [Ko-fi](https://ko-fi.com/ricardodantas), or [Buy Me A Coffe](https://www.buymeacoffee.com/ricardodantas)! 🎉 You can get your company logo, link & name on this file. It's also rendered on package page in npmjs.com and yarnpkg.com sites too! 🚀
 
 ## Contributing
 
