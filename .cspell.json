@@ -36,7 +36,9 @@
     "transpiled",
     "typedoc",
     "untracked",
-    "mainthread"
+    "mainthread",
+    "ko-fi",
+    "yarnpkg"
   ],
   "flagWords": [],
   "ignorePaths": [
